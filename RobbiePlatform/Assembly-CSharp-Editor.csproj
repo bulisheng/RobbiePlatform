@@ -729,6 +729,12 @@
     <Reference Include="UnityEditor.UI">
       <HintPath>D:/GameDemo001/Game/RobbiePlatform/RobbiePlatform/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
+    <Reference Include="Cinemachine">
+      <HintPath>D:/GameDemo001/Game/RobbiePlatform/RobbiePlatform/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
+    </Reference>
+    <Reference Include="com.unity.cinemachine.editor">
+      <HintPath>D:/GameDemo001/Game/RobbiePlatform/RobbiePlatform/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp.csproj">
