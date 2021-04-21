@@ -178,6 +178,8 @@ public class PlayerMove : MonoBehaviour
             jumpTime = Time.time + jumpHoldDuration;
 
             player.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+
+            AudioManager.PlayJumpAudio();
         }
         else if (isJump)
         {

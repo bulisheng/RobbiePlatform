@@ -13,8 +13,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Ground
+  - Player
   - 
   - 
   - 
@@ -38,11 +38,11 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Default
-    uniqueID: 0
-    locked: 0
   - name: BackGround
     uniqueID: 1956799403
+    locked: 0
+  - name: BackGround De
+    uniqueID: 527675333
     locked: 0
   - name: Platforms
     uniqueID: 1662379393
@@ -52,4 +52,7 @@ TagManager:
     locked: 0
   - name: Foreground
     uniqueID: 1198744777
+    locked: 0
+  - name: Default
+    uniqueID: 0
     locked: 0
