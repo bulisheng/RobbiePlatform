@@ -15,7 +15,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1505703357
 Transform:
@@ -43,8 +43,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.9056604, g: 0.85103583, b: 0.03844783, a: 1}
-  m_Intensity: 1
-  m_Range: 20
+  m_Intensity: 5
+  m_Range: 5
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -74,7 +74,7 @@ Light:
       e32: 0
       e33: 1
     m_UseCullingMatrixOverride: 0
-  m_Cookie: {fileID: 0}
+  m_Cookie: {fileID: 8900000, guid: add6ee39d394e3d4ab24986d9ba6d68a, type: 3}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
   m_RenderMode: 0
@@ -108,7 +108,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4463583680040522
 Transform:
@@ -4604,7 +4604,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1956799403
-  m_SortingLayer: 1
+  m_SortingLayer: -5
   m_SortingOrder: 2
   m_RenderMode: 0
   m_SortMode: 0
@@ -4645,7 +4645,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4056995575613202
 Transform:
@@ -9069,7 +9069,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1956799403
-  m_SortingLayer: 1
+  m_SortingLayer: -5
   m_SortingOrder: 2
   m_RenderMode: 1
   m_SortMode: 0
@@ -9180,7 +9180,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1956799403
-  m_SortingLayer: 1
+  m_SortingLayer: -5
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 6f04504c2ec348a459042d5ca15071ef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

@@ -19,7 +19,8 @@ public class PlayerHealth : MonoBehaviour
             AudioManager.PlayDeathAudio();
             Instantiate(deathVFXPrefab,transform.position,transform.rotation);
             gameObject.SetActive(false);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            GameManager.PlayerDied();
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
     // Update is called once per frame

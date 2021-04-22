@@ -6,12 +6,12 @@ public class PlayerMove : MonoBehaviour
     BoxCollider2D collider2D;
 
     [Header("移动参数")]
-    public float speed = 8f;//移动速度
-    public float crouchSpeed = 3f;//蹲下后移动速度
+    public float speed = 7f;//移动速度
+    public float crouchSpeed = 4f;//蹲下后移动速度
 
 
     [Header("跳跃参数")]
-    public float jumpForce = 6.3f;//跳跃的力
+    public float jumpForce = 8f;//跳跃的力
     public float jumpHoldForce = 1.9f;
     public float jumpHoldDuration = 0.1f;//计算跳起来的时间差
     public float crounchJumpBoost = 2.5f;//蹲下跳跃的力
@@ -67,6 +67,8 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.IsOver())
+            return;
         jumpPressed = Input.GetButtonDown("Jump");
         jumpHeld = Input.GetButton("Jump");
         crouchHeld = Input.GetButton("Crouch");
@@ -74,6 +76,8 @@ public class PlayerMove : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        if (GameManager.IsOver())
+            return;
         PhysicsCheck();
         GroundMovementt();
         MidAirMovement();
@@ -109,7 +113,6 @@ public class PlayerMove : MonoBehaviour
         if (!isOnGround && player.velocity.y < 0f && ledgeCheck && walledCheck && !blockedCheck)
         {      
             Vector3 pos = transform.position;
-            Debug.LogError(walledCheck.distance);
             pos.x += (direction<0? -1:1)*walledCheck.distance - 0.05f * direction;
             pos.y -= ledgeCheck.distance;
             transform.position = pos;
@@ -158,6 +161,7 @@ public class PlayerMove : MonoBehaviour
                 player.bodyType = RigidbodyType2D.Dynamic;
                 player.velocity = new Vector2(player.velocity.x, haningJumpForce);
                 isHanging = false;
+                //isJump = true;
             }
             if (crouPressed)
             {
@@ -167,9 +171,9 @@ public class PlayerMove : MonoBehaviour
         }
         if (jumpPressed && isOnGround && !isJump && !isHeadBlocked)
         {
-            if (isCrounch)
-            {
-                StanUp();
+            if (isCrounch   )
+            { 
+                StanUp(); 
                 player.AddForce(new Vector2(0, crounchJumpBoost), ForceMode2D.Impulse);
             }
             isOnGround = false;

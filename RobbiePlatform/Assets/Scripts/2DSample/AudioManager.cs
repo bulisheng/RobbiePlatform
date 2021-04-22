@@ -11,6 +11,8 @@ public class AudioManager : MonoBehaviour
 
     [Header("FX 音效")]
     public AudioClip deathFXCClip;
+    public AudioClip ordFXCClip;
+    public AudioClip doorFXCClip;
 
     [Header("Robbie 音效")]
     public AudioClip[] walkStepClips;
@@ -20,6 +22,7 @@ public class AudioManager : MonoBehaviour
 
     public AudioClip jumpViodeClip;
     public AudioClip deathViodeClip;
+    public AudioClip ordViodeClip;
 
     AudioSource ambientSource;
     AudioSource musicSource;
@@ -28,6 +31,11 @@ public class AudioManager : MonoBehaviour
     AudioSource voiceSource;
     private void Awake()
     {
+        if (current!=null)
+        {
+            Destroy(gameObject);
+            return;
+        }
         current = this;
         DontDestroyOnLoad(gameObject);
 
@@ -78,6 +86,22 @@ public class AudioManager : MonoBehaviour
 
         current.fxSource.clip = current.deathFXCClip;
         current.fxSource.Play();
+    }
+
+    public static void PlayOrdAudio()
+    {
+
+        current.voiceSource.clip = current.ordViodeClip;
+        current.voiceSource.Play();
+
+        current.fxSource.clip = current.ordFXCClip;
+        current.fxSource.Play();
+    }
+
+    public static void PlayDoorAudio()
+    {
+        current.fxSource.clip = current.doorFXCClip;
+        current.fxSource.PlayDelayed(1);
     }
 }
 
