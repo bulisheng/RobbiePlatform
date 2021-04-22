@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class AudioManager : MonoBehaviour
     public AudioClip deathFXCClip;
     public AudioClip ordFXCClip;
     public AudioClip doorFXCClip;
+    public AudioClip startClip;
+    public AudioClip winClip;
 
     [Header("Robbie 音效")]
     public AudioClip[] walkStepClips;
@@ -29,6 +32,8 @@ public class AudioManager : MonoBehaviour
     AudioSource fxSource;
     AudioSource playerSource;
     AudioSource voiceSource;
+
+    public AudioMixerGroup ambientGroup, musicGroup, fxGroup, playerGroup, voiceGroup;
     private void Awake()
     {
         if (current!=null)
@@ -44,6 +49,12 @@ public class AudioManager : MonoBehaviour
         fxSource = gameObject.AddComponent<AudioSource>();
         playerSource = gameObject.AddComponent<AudioSource>();
         voiceSource = gameObject.AddComponent<AudioSource>();
+
+        ambientSource.outputAudioMixerGroup = ambientGroup;
+        musicSource.outputAudioMixerGroup = musicGroup;
+        fxSource.outputAudioMixerGroup = fxGroup;
+        playerSource.outputAudioMixerGroup = playerGroup;
+        voiceSource.outputAudioMixerGroup = voiceGroup;
         StartLevelAudio();
     }
     void StartLevelAudio()
@@ -55,6 +66,17 @@ public class AudioManager : MonoBehaviour
         current.musicSource.clip = current.musicClip;
         current.musicSource.loop = true;
         current.musicSource.Play();
+
+
+        current.fxSource.clip = current.startClip;
+        current.fxSource.Play();
+    }
+    public static void PlayWinAudio()
+    {
+
+        current.fxSource.clip = current.winClip;
+        current.fxSource.Play();
+        current.playerSource.Stop();
     }
     public static void PlayFootStepAudio()
     {

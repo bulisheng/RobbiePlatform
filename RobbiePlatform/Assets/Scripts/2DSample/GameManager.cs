@@ -42,6 +42,7 @@ public class GameManager : MonoBehaviour
     {
         instance.isOver = true;
         UIManager.UpdateOverUI();
+        AudioManager.PlayWinAudio();
     }
     public static  void RestarOrb(Ord orb)
     {
@@ -70,10 +71,10 @@ public class GameManager : MonoBehaviour
     }
     public static void PlayerGrabbedOrd(Ord ord)
     {
-        if (!instance.ords.Contains(ord))
+        if (instance.ords.Contains(ord))
         {
             instance.ords.Remove(ord);
-            if (instance.ords.Count  > 5)
+            if (instance.ords.Count  < 5)
             {
                 instance.doorn.PlayOpen();
             }

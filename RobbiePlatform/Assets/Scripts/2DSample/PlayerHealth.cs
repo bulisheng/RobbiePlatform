@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerHealth : MonoBehaviour
 {
     public GameObject deathVFXPrefab;
+    public GameObject deathRobbieGhost;
     int trapsLayer;
     // Start is called before the first frame update
     void Start()
@@ -18,6 +19,7 @@ public class PlayerHealth : MonoBehaviour
         {
             AudioManager.PlayDeathAudio();
             Instantiate(deathVFXPrefab,transform.position,transform.rotation);
+            Instantiate(deathRobbieGhost, transform.position, Quaternion.Euler(0,0,Random.Range(-45,90)));
             gameObject.SetActive(false);
             GameManager.PlayerDied();
             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
