@@ -39,6 +39,7 @@ public class PlayerCntroller : MonoBehaviour
         if (collision.CompareTag("Spiked"))
         {
             anim.SetTrigger("dead");
+            GameManager.GameOver(true);
         }
     }
     void Movement()
