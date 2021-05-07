@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class RoomGenerator : MonoBehaviour
@@ -29,6 +30,7 @@ public class RoomGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ReadFile();
         for (int i = 0; i < roomNumber; i++)
         {
             rooms.Add(Instantiate(roomPrefab, generatorPoint.position, Quaternion.identity).GetComponent<Room>());
@@ -50,7 +52,20 @@ public class RoomGenerator : MonoBehaviour
         FindEndRoom();
         endPrefab.GetComponent<SpriteRenderer>().color = endColor;
     }
+    //读取txt内容
+    void ReadFile()
+    {
+        //文件夹为与Assets并列对的文件夹，同在一个项目文件夹下。
+        string FileName = Application.streamingAssetsPath + @"/rooms.txt";
+        
 
+        string[] strs = File.ReadAllLines(FileName);//读取文件的所有行，并将数据读取到定义好的字符数组strs中，一行存一个单元
+        for (int i = 0; i < strs.Length; i++)
+        {
+            roomNumber = int.Parse(strs[i]);
+            print(strs[i]);
+        }
+    }
     // Update is called once per frame
     void Update()
     {

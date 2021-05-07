@@ -26,6 +26,13 @@ public class PlayerController : MonoBehaviour
         }
         SwichAnim();
     }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        //if (collision.collider.CompareTag("Door"))
+        //{
+        //    collision.transform.parent.GetComponent<Room>().SetDoorOpen();
+        //}
+    }
     private void FixedUpdate()
     {
         rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);

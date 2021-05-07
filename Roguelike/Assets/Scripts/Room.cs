@@ -27,22 +27,23 @@ public class Room : MonoBehaviour
     }
     public void GeneratGoldCOINS()
     {
-        int number = Random.Range(0, 10);
+        int number = Random.Range(3, 10);
+        GameManger.Number += number;
+        GameManger.UpdateOrbUI(GameManger.Number);
         for (int i = 0; i < number; i++)
         {
             GameObject glodobj = Instantiate(gold, this.transform.position, Quaternion.identity, this.transform);
             glodobj.transform.localPosition = new Vector3(Random.Range(-7, 7), Random.Range(-3, 3), 0);
             games.Add(glodobj);
+
         }
     }
-    // Update is called once per frame
-    void Update()
-    {
 
-    }
     public void SetDoorStart(GameObject game)
     {
         games.Remove(game);
+        GameManger.Number --;
+        GameManger.UpdateOrbUI(GameManger.Number);
         if (games.Count < 1)
         {
             upDoor.SetActive(false);
@@ -55,17 +56,17 @@ public class Room : MonoBehaviour
     }
     public void SetDoorClose()
     {
-        upDoor.SetActive(false);
-        downDoor.SetActive(false);
-        leftDoor.SetActive(false);
-        rightDoor.SetActive(false);
+        upDoor.GetComponent<BoxCollider2D>().enabled = false;
+        downDoor.GetComponent<BoxCollider2D>().enabled = false;
+        leftDoor.GetComponent<BoxCollider2D>().enabled = false;
+        rightDoor.GetComponent<BoxCollider2D>().enabled = false;
     }
     public void SetDoorOpen()
     {
-        upDoor.SetActive(true);
-        downDoor.SetActive(true);
-        leftDoor.SetActive(true);
-        rightDoor.SetActive(true);
+        upDoor.GetComponent<BoxCollider2D>().enabled=true;
+        downDoor.GetComponent<BoxCollider2D>().enabled = true;
+        leftDoor.GetComponent<BoxCollider2D>().enabled = true;
+        rightDoor.GetComponent<BoxCollider2D>().enabled = true;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

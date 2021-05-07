@@ -4,11 +4,7 @@ using UnityEngine;
 
 public class Gold : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.CompareTag("Player"))
@@ -24,10 +20,5 @@ public class Gold : MonoBehaviour
             Destroy(this.gameObject);
             transform.parent.GetComponent<Room>().SetDoorStart(gameObject);
         }
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

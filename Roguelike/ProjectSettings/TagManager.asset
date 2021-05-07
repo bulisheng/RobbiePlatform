@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Door
   layers:
   - Default
   - TransparentFX
@@ -14,8 +15,8 @@ TagManager:
   - 
   - 
   - Room
-  - 
-  - 
+  - Gold
+  - Door
   - 
   - 
   - 
@@ -46,6 +47,9 @@ TagManager:
     locked: 0
   - name: Door
     uniqueID: 1901376189
+    locked: 0
+  - name: Gold
+    uniqueID: 1965806977
     locked: 0
   - name: Player
     uniqueID: 2285340683
