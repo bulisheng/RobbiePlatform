@@ -168,7 +168,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -1.7, y: -2.36}
+  m_ConnectedAnchor: {x: 1.22, y: -2.36}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -189,4 +189,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec19236343cc9144daa14462b91f53b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movement: {x: 0, y: 3, z: 0}
+  movement: {x: 0, y: 5, z: 0}
