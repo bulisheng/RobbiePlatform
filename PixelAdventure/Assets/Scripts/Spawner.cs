@@ -18,6 +18,8 @@ public class Spawner : MonoBehaviour
         if (countTime >= spawnerTime)
         {
             CreatePlatfprm();
+            CreatePlatfprm();
+            CreatePlatfprm();
             countTime = 0;
         }
     }
