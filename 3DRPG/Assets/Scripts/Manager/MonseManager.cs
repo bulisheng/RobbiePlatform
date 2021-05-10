@@ -1,15 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
-
-[System.Serializable]
-public class EventVector3 : UnityEvent<Vector3> { }
+using System;
 
 public class MonseManager : MonoBehaviour
 {
+    public static MonseManager Instance;
+    public Texture2D point, doorway, attack, target, arrow;
+    private void Awake() {
+        if(Instance != null)
+         Destroy(gameObject);
+        Instance = this;
+    }
     RaycastHit hitInfo;
-    public EventVector3 onMouseCliscked;
+    public event Action<Vector3> onMouseCliscked;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +23,8 @@ public class MonseManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SetCursorTexture();
+        SetCursorTexture(); 
+        MouseControl();
     }
     void SetCursorTexture()
     {
@@ -27,7 +32,12 @@ public class MonseManager : MonoBehaviour
 
         if (Physics.Raycast(ray, out hitInfo))
         {
-            MouseControl();
+            switch (hitInfo.collider.gameObject.tag)
+            {
+                case "Ground":
+                    Cursor.SetCursor(target,new Vector2 (16,16),CursorMode.Auto);
+                    break;
+            }
         }
     }
     void MouseControl()
