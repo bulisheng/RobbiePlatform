@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Slime Attack
   m_EditorClassIdentifier: 
   attackRange: 1
-  skillRange: 0
+  skillRange: 1
   coolDown: 1
   minDamge: 2
   maxDamge: 4
